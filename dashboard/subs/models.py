@@ -1,3 +1,19 @@
 from django.db import models
+from dashboard.dash.models import PeriodChoice
+from dashboard.dash.models import PaymentChoice
+from dashboard.dash.models import Label
 
-# Create your models here.
+class Subscription(models.Model):
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
+    price = models.FloatField()
+    currency = models.CharField(max_length=3)
+    recurring = models.BooleanField()
+    start_date = models.DateField()
+    recurring_period = models.SmallIntegerField()
+    recurring_unit = models.CharField(max_length=10, choices=[(tag, tag.value) for tag in PeriodChoice])
+    payment_method = models.CharField(max_length=10, choices=[(tag, tag.value) for tag in PaymentChoice])
+    labels = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
