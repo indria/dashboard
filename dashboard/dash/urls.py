@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 from dashboard.dash import views
 
+app_name = 'dash'
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('dashboard.dash.urls')),
-    path('subs/', include('dashboard.subs.urls'))
+    path('', views.dash, name='index'),
+
 ]
