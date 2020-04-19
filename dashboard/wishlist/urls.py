@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from dashboard.subs import views
+from dashboard.wishlist import views
 
-app_name = 'subs'
+app_name = 'wishlist'
 urlpatterns = [
-    path('', views.subscriptions, name='index'),
-    path('new/', views.addSub, name='add_sub'),
+    path('', views.wishlist, name='index'),
 ]

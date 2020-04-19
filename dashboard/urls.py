@@ -20,5 +20,6 @@ from dashboard.dash import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dashboard.dash.urls')),
-    path('subs/', include('dashboard.subs.urls'))
+    path('subs/', include('dashboard.subs.urls')),
+    path('wishlist/', include('dashboard.wishlist.urls'))
 ]
