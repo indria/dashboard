@@ -20,5 +20,6 @@ from dashboard.subs import views
 app_name = 'subs'
 urlpatterns = [
     path('', views.subscriptions, name='index'),
-    path('new/', views.addSub, name='add_sub'),
+    path('new/', views.subscription_form, name='sub_form'),
+    path('add/', views.add_subscription, name='sub_add'),
 ]

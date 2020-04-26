@@ -7,16 +7,20 @@ from dashboard.subs.forms import SubscriptionForm
 def subscriptions(request):
     payload = {}
     if request.user:
-        payload.update(subscrptions = Subscription.objects.filter(user = request.user))
+        payload.update(subscrptions = Subscription.objects.all())
         return render(request, 'subs/subs.html', payload)
     
     
-def addSub(request):
+def subscription_form(request):
     payload = {}
-    if request.method == 'POST':
-        form = SubscriptionForm(request.POST)
-    else:
-        form = SubscriptionForm()
-        
+    form = SubscriptionForm()
     payload.update(form = form )
+    return render(request, 'subs/addSub.html', payload)
+
+
+def add_subscription(request):
+    payload = {}
+    form = SubscriptionForm(request.POST)
+    form.save()
+    payload.update(form = SubscriptionForm())
     return render(request, 'subs/addSub.html', payload)

@@ -11,7 +11,8 @@
 <div class="container">
     <table class="table table-striped">
         <tbody>
-            <form method="post" class="well form-horizontal">
+            <form method="post" class="well form-horizontal" action="{% url 'subs:sub_add' %}">
+                {% csrf_token %}
                 <tr>
                     <td colspan="1">
                         {% for field in form %}

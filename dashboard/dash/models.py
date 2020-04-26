@@ -7,11 +7,17 @@ class PeriodChoice(Enum):
     WEEKLY = "Weekly"
     MONTHLY = "Monthly"
     YEARLY = "Yearly"
+    
+    def __str__(self):
+        return str(self.value)
 
 
 class PaymentChoice(Enum):
     CASH = "Cash"
     CC = "Credit Card"
+    
+    def __str__(self):
+        return str(self.value)
 
 
 
